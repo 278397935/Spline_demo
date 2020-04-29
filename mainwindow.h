@@ -3,11 +3,22 @@
 
 #include <QMainWindow>
 #include <QFileDialog>
+#include <QMessageBox>
+
 #include "xlsxdocument.h"
 #include "xlsxformat.h"
 #include "xlsxworksheet.h"
 
 #include "spline.h"
+
+
+
+#define OffPhase 2
+#define OffAmplitude 3
+
+#define OnPhase 4
+#define OnAmplitude 5
+
 
 namespace Ui {
 class MainWindow;
@@ -39,6 +50,8 @@ private slots:
 
     void on_pushButtonSpline_clicked();
 
+    void CAS90B();
+
 private:
     Ui::MainWindow *ui;
 
@@ -47,8 +60,11 @@ private:
     double *adExitsX,*adExitsY;
     int uiExitsCnt;
 
-    double *adTargetX,*adTargetY;
+    double *adTargetX, *adTargetY;
     int uiTargetCnt;
+
+
+    QAction *poActionFiles;
 };
 
 #endif // MAINWINDOW_H

@@ -38,6 +38,7 @@
 /* Critical */
 #define qDebugV5() (qCritical()<<"[ERR]["<<__FILE__"|"<<__FUNCTION__<<":"<<__LINE__<<"] ")
 
+
 /* Last Dir log */
 #define LASTDIR    "LastDirLog.ini"
 
@@ -58,10 +59,12 @@ public:
     //y->返回插值结果(输出)
     //如果x不是内插值点则插值失败
     virtual bool SinglePointInterp(const double& x,double& y)=0;
+
     //多点插值:
     //x->输入自变量数组首指针,num->自变量个数的引用(输入)
     //y->返回插值结果的首指针(输出数组)
     virtual bool MultiPointInterp(const double* x,const int& num,double* y)=0;
+
     //自动插值:
     //num->需要生成的插值个数的引用(输入)
     //x->存放自变量数组的首指针(输出数组)
@@ -76,8 +79,8 @@ public:
 
 enum BoundaryCondition		//边界条件枚举
 {
-    GivenFirstOrder=1		//给定一阶导数
-    ,GivenSecondOrder		//给定二阶导数
+    GivenFirstOrder = 1,	//给定一阶导数
+    GivenSecondOrder		//给定二阶导数
 };
 
 
